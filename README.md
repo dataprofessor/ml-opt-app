@@ -22,7 +22,7 @@ conda create -n mlopt python=3.7.9
 ```
 Secondly, we will login to the *mlopt* environement
 ```
-conda activate multipage
+conda activate mlopt
 ```
 ### Install prerequisite libraries
 
