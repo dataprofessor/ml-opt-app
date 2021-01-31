@@ -38,6 +38,10 @@ Pip install libraries
 pip install -r requirements.txt
 ```
 
+###  Download and unzip contents from GitHub repo
+
+Download and unzip contents from https://github.com/dataprofessor/ml-opt-app/archive/main.zip
+
 ###  Launch the app
 
 ```
