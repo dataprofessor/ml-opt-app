@@ -116,12 +116,12 @@ def build_model(df):
     st.write(grid.get_params())
 
     #-----Process grid data-----#
-    grid_results = pd.concat([pd.DataFrame(grid.cv_results_["params"]),pd.DataFrame(grid.cv_results_["mean_test_score"], columns=["Accuracy"])],axis=1)
+    grid_results = pd.concat([pd.DataFrame(grid.cv_results_["params"]),pd.DataFrame(grid.cv_results_["mean_test_score"], columns=["R2"])],axis=1)
     # Segment data into groups based on the 2 hyperparameters
     grid_contour = grid_results.groupby(['max_features','n_estimators']).mean()
     # Pivoting the data
     grid_reset = grid_contour.reset_index()
-    grid_reset.columns = ['max_features', 'n_estimators', 'Accuracy']
+    grid_reset.columns = ['max_features', 'n_estimators', 'R2']
     grid_pivot = grid_reset.pivot('max_features', 'n_estimators')
     x = grid_pivot.columns.levels[1].values
     y = grid_pivot.index.values
@@ -142,7 +142,7 @@ def build_model(df):
                       scene = dict(
                         xaxis_title='n_estimators',
                         yaxis_title='max_features',
-                        zaxis_title='Accuracy'),
+                        zaxis_title='R2'),
                       autosize=False,
                       width=800, height=800,
                       margin=dict(l=65, r=50, b=65, t=90))
